@@ -594,7 +594,7 @@ section {
 
 .about-image {
     aspect-ratio: 1;
-    border-radius: 20px;
+    border-radius: 50%;
     background: rgba(21, 21, 33, 0.6);
     display: flex;
     align-items: center;
@@ -609,7 +609,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 50%;
 }
 
 .about-image:hover {
@@ -1214,8 +1214,16 @@ footer p {
     }
 
     .about-image {
-        max-width: 260px;
+        max-width: 220px;
         margin: 0 auto;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+    .about-skills {
+        justify-content: center;
     }
 
     .portfolio-grid {
