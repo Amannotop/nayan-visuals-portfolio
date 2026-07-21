@@ -5,7 +5,7 @@ Static single-page portfolio site. No build tooling, no package.json, no framewo
 ## Structure
 
 - `index.html` — public portfolio (hero, services, portfolio grid, testimonials, about, contact)
-- `admin.html` — CRUD panel for portfolio videos (in-memory only)
+
 - `data/portfolio.json` — video data source; fetched by both pages via `fetch()`
 - `js/script.js` — portfolio page logic (filtering, lightbox, scroll animations)
 - `css/style.css` — all styles (responsive, lightbox, admin layout)
