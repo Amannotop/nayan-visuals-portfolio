@@ -36,6 +36,15 @@
         "videoUrl": "https://www.youtube.com/embed/kJQP7kiw5Fk"
     },
     {
+        "id": 17,
+        "title": "A minimum long-form MLBB edit with good AI voiceover, script, animations, transitions, overlays, sound design, background music, subtitles, motion graphics, color grading, and engaging visual effects.",
+        "description": "A minimum long-form MLBB edit with good AI voiceover, script, animations, transitions, overlays, sound design, background music, subtitles, motion graphics, color grading, and engaging visual effects.",
+        "category": "gameplay",
+        "icon": "fa-gamepad",
+        "thumbnail": "",
+        "videoUrl": "https://www.youtube.com/embed/oTOrKqwQZtI"
+    },
+    {
         "id": 5,
         "title": "Music Visualizer",
         "description": "Cinematic music video edit",
