@@ -1379,9 +1379,7 @@ footer p {
         gap: 12px;
     }
 
-    .portfolio-item {
-        aspect-ratio: 16/10;
-    }
+
 
     .contact-grid {
         gap: 28px;
