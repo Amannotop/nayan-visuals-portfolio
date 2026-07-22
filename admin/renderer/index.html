@@ -1,70 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nayan Visuals Admin</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://img.youtube.com https://i.ytimg.com; style-src 'self' 'unsafe-inline';">
+  <title>Nayan Visuals Admin</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Nayan Visuals Admin</h1>
-        <span id="status"></span>
-    </header>
 
-    <div class="container">
-        <div class="sidebar">
-            <button class="btn btn-primary" id="addBtn">+ New Entry</button>
-            <div class="entry-list" id="entryList"></div>
+  <div id="app">
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div class="sidebar-header">
+        <h1>Nayan Visuals</h1>
+        <span class="entry-count" id="entryCount">0</span>
+      </div>
+
+      <div class="sidebar-search">
+        <input type="text" id="searchInput" placeholder="Search entries..." spellcheck="false">
+      </div>
+
+      <div class="sidebar-actions">
+        <button class="btn btn-primary" id="addBtn">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          New Entry
+        </button>
+      </div>
+
+      <div class="entry-list" id="entryList"></div>
+    </aside>
+
+    <!-- Main -->
+    <main id="main">
+      <!-- Empty state -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6b6b8a" stroke-width="1.5"><path d="M15 10l4.5-4.5M15 10V4m0 6h6M9 14l-4.5 4.5M9 14v6m0-6H3" stroke-linecap="round"/></svg>
+        </div>
+        <h2>No entry selected</h2>
+        <p>Create a new portfolio entry or select one from the list.</p>
+      </div>
+
+      <!-- Form -->
+      <form id="form" class="form" style="display:none">
+        <div class="form-header">
+          <h2 id="formTitle">New Entry</h2>
+          <span class="form-badge" id="formBadge"></span>
         </div>
 
-        <main>
-            <div class="empty-state" id="emptyState">
-                <h2>Select or create an entry</h2>
-                <p>Click "+ New Entry" to add a video to your portfolio.</p>
+        <div class="form-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" id="title" placeholder="e.g. Epic Gaming Montage" required>
             </div>
-
-            <form id="form" class="form" style="display:none">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" id="title" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="category">Category</label>
-                        <select id="category">
-                            <option value="gameplay">Gaming Edit</option>
-                            <option value="video">Cinematic Video</option>
-                            <option value="color-grading">Color Grading</option>
-                            <option value="motion-graphics">Social Media</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea id="description" rows="2" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="videoUrl">YouTube URL</label>
-                    <input type="url" id="videoUrl" placeholder="https://youtube.com/watch?v=..." required>
-                </div>
-                <div class="thumbnail-preview" id="thumbnailPreview" style="display:none">
-                    <img id="thumbnailImg" alt="Thumbnail preview">
-                </div>
-                <div class="btn-group">
-                    <button type="submit" class="btn btn-primary" id="saveBtn">Save</button>
-                    <button type="button" class="btn btn-danger" id="deleteBtn">Delete</button>
-                    <button type="button" class="btn btn-outline" id="cancelBtn">Cancel</button>
-                </div>
-            </form>
-
-            <div class="push-section" id="pushSection">
-                <input type="text" id="commitMsg" placeholder="Commit message..." value="update portfolio">
-                <button class="btn btn-primary" id="pushBtn">Push to GitHub</button>
+            <div class="form-group">
+              <label for="category">Category</label>
+              <select id="category">
+                <option value="gameplay">Gaming Edit</option>
+                <option value="video">Cinematic Video</option>
+                <option value="color-grading">Color Grading</option>
+                <option value="motion-graphics">Social Media</option>
+              </select>
             </div>
-        </main>
-    </div>
+          </div>
 
-    <script src="app.js"></script>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" rows="2" placeholder="Brief description of the video..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="videoUrl">YouTube URL</label>
+            <input type="url" id="videoUrl" placeholder="https://youtube.com/watch?v=..." required>
+          </div>
+
+          <div class="thumbnail-preview" id="thumbnailPreview" style="display:none">
+            <img id="thumbnailImg" alt="Thumbnail preview">
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <div class="btn-group">
+            <button type="submit" class="btn btn-primary" id="saveBtn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 5l-5.5 5.5L4 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span id="saveBtnText">Create Entry</span>
+            </button>
+            <button type="button" class="btn btn-danger" id="deleteBtn" style="display:none">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1M12 4v9a1 1 0 01-1 1H5a1 1 0 01-1-1V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Delete
+            </button>
+            <button type="button" class="btn btn-ghost" id="cancelBtn">Cancel</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Push section -->
+      <div class="push-section" id="pushSection">
+        <div class="push-input-row">
+          <input type="text" id="commitMsg" placeholder="Commit message..." value="update portfolio" spellcheck="false">
+          <button class="btn btn-primary" id="pushBtn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v10M4 7l4 4 4-4M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Push to GitHub
+          </button>
+        </div>
+        <div class="push-status" id="pushStatus"></div>
+      </div>
+    </main>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>

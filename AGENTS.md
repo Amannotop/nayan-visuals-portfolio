@@ -26,6 +26,7 @@ Static single-page portfolio site. No build tooling, no package.json, no framewo
 - `admin/` — Electron app for managing portfolio entries with GitHub push.
 - Run: `cd admin && npm install && npm start`.
 - Supports CRUD on `data/portfolio.json` and push to both remotes.
+- Native menus, drag-to-reorder, search, keyboard shortcuts (Cmd/Ctrl+N new, Cmd/Ctrl+S save, Cmd/Ctrl+Enter push, Escape cancel).
 
 ## Deployment
 
