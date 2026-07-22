@@ -21,6 +21,12 @@ Static single-page portfolio site. No build tooling, no package.json, no framewo
 - Fonts: Google Poppins + Font Awesome 6.5.1 via CDN.
 - Profile photo: `profile.jpg` in root (circular in About section).
 
+## Admin App (Desktop)
+
+- `admin/` — Electron app for managing portfolio entries with GitHub push.
+- Run: `cd admin && npm install && npm start`.
+- Supports CRUD on `data/portfolio.json` and push to both remotes.
+
 ## Deployment
 
 - **Two remotes** — push `main` to both after every change:
