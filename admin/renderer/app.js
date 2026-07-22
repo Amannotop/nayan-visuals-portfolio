@@ -36,6 +36,11 @@ function getYoutubeId(url) {
   return m ? m[1] : '';
 }
 
+function toEmbedUrl(url) {
+  const id = getYoutubeId(url);
+  return id ? `https://www.youtube.com/embed/${id}` : url;
+}
+
 const catLabels = {
   gameplay: 'Gaming Edit',
   video: 'Cinematic Video',
@@ -204,7 +209,7 @@ form.addEventListener('submit', async (e) => {
     title: title.value.trim(),
     description: description.value.trim(),
     category: category.value,
-    videoUrl: videoUrl.value.trim(),
+    videoUrl: toEmbedUrl(videoUrl.value.trim()),
     icon: 'fa-' + (catIcons[category.value] || 'play-circle'),
     thumbnail: '',
   };
