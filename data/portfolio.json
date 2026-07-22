@@ -25,5 +25,14 @@
         "icon": "fa-magic",
         "thumbnail": "",
         "videoUrl": "https://www.youtube.com/embed/el6cyk42m9o"
+    },
+    {
+        "id": 20,
+        "title": "Social media edit 2",
+        "description": "Edit",
+        "category": "motion-graphics",
+        "videoUrl": "https://youtube.com/shorts/LRLV8zVtEjw?si=MO-ypIsyogVDVlUe",
+        "icon": "fa-magic",
+        "thumbnail": ""
     }
 ]
