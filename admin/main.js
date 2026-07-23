@@ -127,11 +127,8 @@ ipcMain.handle('git-push', async (_, message) => {
     if (status.files.length === 0) return { success: false, error: 'Nothing to commit' };
     await git.add('data/portfolio.json');
     await git.commit(message);
-    const remotes = await git.getRemotes(true);
-    for (const r of remotes) {
-      await git.push(r.name, 'main');
-    }
-    return { success: true, remotes: remotes.map(r => r.name) };
+    await git.push('nayanvisual', 'main');
+    return { success: true, remotes: ['nayanvisual'] };
   } catch (err) {
     return { success: false, error: err.message };
   }
