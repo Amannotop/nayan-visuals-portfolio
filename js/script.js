@@ -71,8 +71,13 @@ async function loadPortfolio() {
 
 function getYoutubeId(url) {
     if (!url) return '';
-    const m = url.match(/(?:embed\/|shorts\/|v=|\/)([a-zA-Z0-9_-]{11})/);
+    const m = url.match(/(?:youtube\.com\/(?:embed\/|watch\?v=|shorts\/|live\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
     return m ? m[1] : '';
+}
+
+function toEmbedUrl(url) {
+    const id = getYoutubeId(url);
+    return id ? `https://www.youtube.com/embed/${id}` : url;
 }
 
 function renderPortfolio(videos) {
@@ -142,7 +147,7 @@ function openLightbox(video) {
     desc.textContent = video.description;
 
     if (video.videoUrl) {
-        embed.innerHTML = `<iframe src="${video.videoUrl}" allowfullscreen loading="lazy"></iframe>`;
+        embed.innerHTML = `<iframe src="${toEmbedUrl(video.videoUrl)}" allowfullscreen loading="lazy"></iframe>`;
     } else {
         embed.innerHTML = `
             <div class="lightbox-placeholder">

@@ -32,7 +32,7 @@ let dragSrcId = null;
 // --- Utils ---
 function getYoutubeId(url) {
   if (!url) return '';
-  const m = url.match(/(?:embed\/|shorts\/|v=|\/)([a-zA-Z0-9_-]{11})/);
+  const m = url.match(/(?:youtube\.com\/(?:embed\/|watch\?v=|shorts\/|live\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
   return m ? m[1] : '';
 }
 

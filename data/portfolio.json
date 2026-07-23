@@ -1,23 +1,5 @@
 [
     {
-        "id": 17,
-        "title": "Long form mlbb gaming video",
-        "description": "A minimum long-form MLBB edit with good AI voiceover, script, animations, transitions, overlays, sound design, background music, subtitles, motion graphics, color grading, and engaging visual effects.",
-        "category": "gameplay",
-        "icon": "fa-gamepad",
-        "thumbnail": "",
-        "videoUrl": "https://www.youtube.com/embed/oTOrKqwQZtI"
-    },
-    {
-        "id": 18,
-        "title": "Wedding video edit",
-        "description": "Wedding videos edited in a cinematic style with clean cuts, smooth transitions, and natural color grading.",
-        "category": "video",
-        "icon": "fa-film",
-        "thumbnail": "",
-        "videoUrl": "https://www.youtube.com/embed/2A_licSOe24"
-    },
-    {
         "id": 19,
         "title": "Social media edit",
         "description": "Clean and minimal social media editing with smooth cuts, subtle transitions, and natural color grading.",
